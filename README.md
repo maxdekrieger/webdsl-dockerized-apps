@@ -8,22 +8,18 @@ Copy the source code of the WebDSL application to `src/`
 
 ## Running the app
 
-1. Build the Docker container: 
-
-```zsh
-docker build . -t webdsl-app --build-arg app_name=<my-webdsl-app> # replace <my-webdsl-app>
+```bash
+./run.sh <name-of-main-file>
+# Example: ./run.sh GamePanel
 ```
 
-2. Run the Docker container:
-
-```zsh
-docker run -it --name webdsl-app -p 8081:8080 webdsl-app
-```
+After the Docker image is built and the container has started, the app should be available at `localhost:8081/<name-of-main-file>`.
 
 ## Reindexing
 
-```zsh
-docker exec -u root -it wpl /bin/sh -c 'cd /usr/local/tomcat/webapps/<my-webdsl-app> ; sh ./webdsl-reindex' # replace <my-webdsl-app>
+```bash
+./reindex.sh <name-of-main-file>
+# Example: ./reindex.sh GamePanel
 ```
 
 Press enter if it prompts you for amount of memory.
